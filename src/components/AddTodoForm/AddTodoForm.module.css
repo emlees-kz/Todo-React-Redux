@@ -1,0 +1,9 @@
+
+.main_text {
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size:  40px;
+}
+.main_form {
+    display: flex;
+}
