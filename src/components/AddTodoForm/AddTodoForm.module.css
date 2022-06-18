@@ -1,9 +1,13 @@
 
 .main_text {
-    margin-bottom: 1rem;
+    margin: 0 0 1rem 0 ;
     font-weight: 600;
     font-size:  40px;
 }
 .main_form {
     display: flex;
+    margin-bottom: 3rem;
+}
+.button {
+    width: 38px;
 }

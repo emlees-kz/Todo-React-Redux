@@ -8,33 +8,36 @@ import TodoItem from "../TodoItem/TodoItem";
 
 const AddTodoForm = () => {
 
-    let [value, setVslue] = useState("")
+    let [value, setValue] = useState("")
     const handleInput = (e) => {
-        setVslue(e.target.value)
+        setValue(e.target.value)
     }
 
     const dispatch = useDispatch();
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         let id = uniqid()
         dispatch(CommentCreate(value, id))
+        e.target.value = value
+        setValue('')
+
     }
 
     const comments = useSelector(state => {
         let { CommentReducer } = state
         return CommentReducer.comments
     })
-
+    console.log("ds>>", comments);
 
     return (
         <div className="todo_form">
             <p className={s.main_text}>Todo list</p>
             <div className={s.main_form}>
                 <input type="text" value={value} onChange={handleInput} />
-                <button onClick={handleSubmit}>Add</button>
+                <button className={s.button} onClick={handleSubmit}>Add</button>
             </div>
             <div className="todo_list">
-                {!comments.length && comments.map(e => {
+                {!!comments.length && comments.map(e => {
                     return <TodoItem id={e.id} data={e} />
                 })}
             </div>
