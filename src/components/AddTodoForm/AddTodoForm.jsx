@@ -20,8 +20,8 @@ const AddTodoForm = () => {
         dispatch(CommentCreate(value, id))
     }
 
-     const comments = useSelector(state => {
-        let {CommentReducer} = state
+    const comments = useSelector(state => {
+        let { CommentReducer } = state
         return CommentReducer.comments
     })
 
@@ -34,8 +34,8 @@ const AddTodoForm = () => {
                 <button onClick={handleSubmit}>Add</button>
             </div>
             <div className="todo_list">
-                {comments.map(e => {
-                    <TodoItem id={e.id}  data={e} />
+                {!comments.length && comments.map(e => {
+                    return <TodoItem id={e.id} data={e} />
                 })}
             </div>
         </div>
