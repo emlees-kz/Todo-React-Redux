@@ -11,21 +11,19 @@ const TodoItem = ({ data }) => {
             setCommentText(text);
         }
     }, [text]);
-    const handleInput = (e) => {
-        setCommentText(e.target.value);
-    }
+    const handleInput = (e) => setCommentText(e.target.value);
+
 
     const dispatch = useDispatch()
-    const handleDelete = () => {
-        dispatch(CommentDelete(id))
-    }
+    const handleDelete = () => dispatch(CommentDelete(id))
     const handleComplete = () => {
         let { completed } = data;
         let completedFalse 
         (completed) ? completedFalse = false : completedFalse = true
         dispatch(CommentComplete(text, id, completedFalse))
     }
-    
+
+
     const completedState = useSelector(state => {
         let {completed} = data;
         return completed

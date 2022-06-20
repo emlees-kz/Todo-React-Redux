@@ -9,27 +9,22 @@ import TodoItem from "../TodoItem/TodoItem";
 const AddTodoForm = () => {
 
     let [value, setValue] = useState("")
-    const handleInput = (e) => {
-        setValue(e.target.value)
-    }
+    const handleInput = (e) => { setValue(e.target.value) }
 
     const dispatch = useDispatch();
-
     const handleSubmit = (e) => {
         let id = uniqid()
         let completed = true
-        if (value != "") {
-            dispatch(CommentCreate(value, id, completed))
-        }
+        if (value != "") dispatch(CommentCreate(value, id, completed)) 
         e.target.value = value
         setValue('')
-
     }
 
     const comments = useSelector(state => {
         let { CommentReducer } = state
         return CommentReducer.comments
     })
+
     const lengthTask = useSelector(state => {
         let { CommentReducer } = state;
         return CommentReducer.comments.length
