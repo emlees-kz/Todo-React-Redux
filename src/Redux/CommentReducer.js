@@ -1,9 +1,8 @@
-const COMMENT_CREATE = "COMMENT_CREATE"
-const COMMENT_DELETE = "COMMENT_DELETE"
+import { COMMENT_COMPLETE, COMMENT_CREATE, COMMENT_DELETE } from "./actions"
+
 
 let intialState = {
-    comments: []
-
+    comments: [],
 }
 
 export const CommentReducer = (state = intialState, action) => {
@@ -14,33 +13,36 @@ export const CommentReducer = (state = intialState, action) => {
                 comments: [...state.comments, action.data]
             }
         case COMMENT_DELETE:
-            const {id} = action
-            const {comments} = state
+            const { id } = action
+            const { comments } = state
             const itemIndex = comments.findIndex(e => e.id === id)
 
             const nextComments = [
-                ...comments.slice(0,itemIndex),
+                ...comments.slice(0, itemIndex),
                 ...comments.slice(itemIndex + 1)
             ]
             return {
                 ...state,
                 comments: nextComments
             }
+        case COMMENT_COMPLETE:
+            return (() => {
+                const { data } = action;
+                const { comments } = state;
+                const itemIndex = comments.findIndex(res => res.id === data.id);
+          
+                const nextComments = [
+                  ...comments.slice(0, itemIndex),
+                  data,
+                  ...comments.slice(itemIndex + 1)
+                ];
+          
+                return {
+                  ...state,
+                  comments: nextComments
+                }
+            })();
         default:
             return state
-    }
-}
-
-export function CommentCreate(text, id) {
-    return {
-        type: COMMENT_CREATE,
-        data: { text, id }
-    }
-}
-
-export function CommentDelete(id) {
-    return {
-        type: COMMENT_DELETE,
-        id
     }
 }

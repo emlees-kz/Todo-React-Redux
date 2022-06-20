@@ -6,8 +6,24 @@ body {
   align-items: center;
 }
 .App {
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   width: 460px;
   background: rgb(50, 63, 52);
   padding: 1rem;
+}
+.completed {
+  width: 50%;
+  height: 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  background: rgb(247, 244, 230);
+}
+.not_Completed {
+  width: 50%;
+  height: 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  background: rgba(247, 244, 230, 0.246);
+  text-decoration: line-through;
 }

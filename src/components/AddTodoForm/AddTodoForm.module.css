@@ -1,13 +1,27 @@
-
+.main_block_text {
+    display: flex;
+}
 .main_text {
-    margin: 0 0 1rem 0 ;
+    margin: 0 0 2rem 0 ;
     font-weight: 600;
     font-size:  40px;
 }
-.main_form {
-    display: flex;
-    margin-bottom: 3rem;
+.lengthTask_text {
+    font-size:  15px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: rgb(247, 244, 230);
+
 }
-.button {
-    width: 38px;
+.header_form {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+.value_task {
+    width: 40%;
+}
+.button_add {
+    width: 15%;
+    font-weight: 600;
+    color: rgb(31, 67, 36);
 }
