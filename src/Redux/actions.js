@@ -15,6 +15,7 @@ export function CommentDelete(id) {
         id
     }
 }
+
 export function CommentComplete(text, id, completed) {
     return {
         type: COMMENT_COMPLETE,
